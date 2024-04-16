@@ -41,6 +41,8 @@ namespace JWTAuthentication.Controllers
           }),
           Expires = DateTime.UtcNow.AddMinutes(5),
           SigningCredentials = signinCredentials,
+          Issuer = _configuration["TokenIssuer"],
+          Audience = _configuration["TokenIssuer"]
         };
 
         var token = tokenHandler.CreateToken(tokenDescription);

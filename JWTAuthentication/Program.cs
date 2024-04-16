@@ -18,7 +18,9 @@ builder.Services
     {
       ValidateIssuer = true,
       ValidateLifetime = true,
-      IssuerSigningKey = signinKey
+      IssuerSigningKey = signinKey,
+      ValidAudience = builder.Configuration["TokenIssuer"],
+      ValidIssuer = builder.Configuration["TokenIssuer"]
     };
   });
 
